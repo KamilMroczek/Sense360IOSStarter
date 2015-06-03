@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		961C14041B1E775D00030857 /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961C14031B1E775D00030857 /* SenseSdk.framework */; };
 		961C14081B1E79BB00030857 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961C14051B1E79BB00030857 /* CoreLocation.framework */; };
 		961C14091B1E79BB00030857 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 961C14061B1E79BB00030857 /* libz.dylib */; };
 		961C140A1B1E79BB00030857 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961C14071B1E79BB00030857 /* SystemConfiguration.framework */; };
+		968E1B0A1B1EC3F800167713 /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968E1B091B1EC3F800167713 /* SenseSdk.framework */; };
 		96E5B46D1B1E284D0010F786 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5B46C1B1E284D0010F786 /* AppDelegate.swift */; };
 		96E5B46F1B1E284D0010F786 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5B46E1B1E284D0010F786 /* ViewController.swift */; };
 		96E5B4721B1E284D0010F786 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96E5B4701B1E284D0010F786 /* Main.storyboard */; };
@@ -30,10 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		961C14031B1E775D00030857 /* SenseSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SenseSdk.framework; sourceTree = "<group>"; };
 		961C14051B1E79BB00030857 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		961C14061B1E79BB00030857 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		961C14071B1E79BB00030857 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		968E1B091B1EC3F800167713 /* SenseSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SenseSdk.framework; sourceTree = "<group>"; };
 		96E5B4671B1E284D0010F786 /* Sense360Starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sense360Starter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E5B46B1B1E284D0010F786 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96E5B46C1B1E284D0010F786 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,8 +53,8 @@
 			files = (
 				961C14081B1E79BB00030857 /* CoreLocation.framework in Frameworks */,
 				961C14091B1E79BB00030857 /* libz.dylib in Frameworks */,
+				968E1B0A1B1EC3F800167713 /* SenseSdk.framework in Frameworks */,
 				961C140A1B1E79BB00030857 /* SystemConfiguration.framework in Frameworks */,
-				961C14041B1E775D00030857 /* SenseSdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,8 +73,8 @@
 			children = (
 				961C14051B1E79BB00030857 /* CoreLocation.framework */,
 				961C14061B1E79BB00030857 /* libz.dylib */,
+				968E1B091B1EC3F800167713 /* SenseSdk.framework */,
 				961C14071B1E79BB00030857 /* SystemConfiguration.framework */,
-				961C14031B1E775D00030857 /* SenseSdk.framework */,
 				96E5B4691B1E284D0010F786 /* Sense360Starter */,
 				96E5B47F1B1E284D0010F786 /* Sense360StarterTests */,
 				96E5B4681B1E284D0010F786 /* Products */,
