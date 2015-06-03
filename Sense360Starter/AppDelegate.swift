@@ -10,7 +10,7 @@ import UIKit
 import SenseSdk
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, TriggerFiredDelegate {
 
     var window: UIWindow?
 
@@ -20,7 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         SenseSdk.enableSdkWithKey("hello")
 
+        let restaurantTrigger = PoiTriggerBuilder().set(poiType: .Restaurant).hasEntered().build().trigger!
+        let restaurantRecipe = Recipe(name: "EnteredRestaurant", trigger: restaurantTrigger)
+
+        SenseSdk.register(recipe: restaurantRecipe, delegate: self)
+
         return true
+    }
+
+    func onTriggerFired(args: TriggerFiredArgs) {
+        NSLog("Recipe \(args.recipe.name) fired at \(args.timestamp).")
     }
 
     func applicationWillResignActive(application: UIApplication) {
