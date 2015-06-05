@@ -57,24 +57,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RecipeFiredDelegate {
                 switch(place.type) {
                     case .CustomGeofence:
                         if let geofence = place as? CustomGeofence {
-                            NSLog("\(transitionDesc) \(geofence.customIdentifier)")
+                            NotificationSender.send("\(transitionDesc) \(geofence.customIdentifier)")
                         }
                         break;
                     case .Personal:
                         if let personal = place as? PersonalizedPlace {
-                            NSLog("\(transitionDesc) \(personal.personalizedPlaceType.description)")
+                            NotificationSender.send("\(transitionDesc) \(personal.personalizedPlaceType.description)")
                         }
                         break;
                     case .Poi:
                         if let poi = place as? PoiPlace {
-                            NSLog("\(transitionDesc) \(poi.types[0].description)")
+                            NotificationSender.send("\(transitionDesc) \(poi.types[0].description)")
                         }
                         break;
                 }
             }
         }
     }
-    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
