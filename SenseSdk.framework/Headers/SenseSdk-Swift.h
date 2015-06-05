@@ -121,6 +121,7 @@ typedef SWIFT_ENUM(NSInteger, CooldownTimeUnit) {
 
 @class Location;
 @class NSMutableDictionary;
+enum PlaceType : NSInteger;
 @protocol Region;
 
 SWIFT_PROTOCOL("_TtP8SenseSdk5Place_")
@@ -128,6 +129,8 @@ SWIFT_PROTOCOL("_TtP8SenseSdk5Place_")
 @property (nonatomic, readonly) Location * __nonnull location;
 @property (nonatomic, readonly) double radius;
 @property (nonatomic, readonly) NSMutableDictionary * __nonnull details;
+@property (nonatomic, readonly, copy) NSString * __nonnull description;
+@property (nonatomic, readonly) enum PlaceType type;
 - (id <Region> __nonnull)getRegion;
 @end
 
@@ -138,18 +141,34 @@ SWIFT_CLASS("_TtC8SenseSdk14CustomGeofence")
 @property (nonatomic, readonly) Location * __nonnull location;
 @property (nonatomic, readonly) double radius;
 @property (nonatomic, readonly, copy) NSString * __nonnull customIdentifier;
+@property (nonatomic, readonly) enum PlaceType type;
 @property (nonatomic, readonly) NSMutableDictionary * __nonnull details;
+@property (nonatomic, readonly, copy, getter=description) NSString * __nonnull description;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithLatitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude radius:(double)radius customIdentifier:(NSString * __nonnull)customIdentifier;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithLocation:(Location * __nonnull)location radius:(double)radius customIdentifier:(NSString * __nonnull)customIdentifier OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder;
 - (void)encodeWithCoder:(NSCoder * __nonnull)acoder;
 - (id <Region> __nonnull)getRegion;
-@property (nonatomic, readonly, copy, getter=description) NSString * __nonnull description;
 @end
 
 
 SWIFT_CLASS("_TtC8SenseSdk21CustomGeofenceTrigger")
 @interface CustomGeofenceTrigger : NSObject
+@end
+
+enum PoiType : NSInteger;
+@class Trigger;
+enum PersonalizedPlaceType : NSInteger;
+@class NSNumber;
+
+SWIFT_CLASS("_TtC8SenseSdk11FireTrigger")
+@interface FireTrigger
++ (Trigger * __nullable)whenEntersPoi:(enum PoiType)type errorPtr:(SenseSdkErrorPointer * __nullable)errorPtr;
++ (Trigger * __nullable)whenExitsPoi:(enum PoiType)type errorPtr:(SenseSdkErrorPointer * __nullable)errorPtr;
++ (Trigger * __nullable)whenEntersPersonalizedPlace:(enum PersonalizedPlaceType)type errorPtr:(SenseSdkErrorPointer * __nullable)errorPtr;
++ (Trigger * __nullable)whenExitsPersonalizedPlace:(enum PersonalizedPlaceType)type kilometers:(NSNumber * __nullable)kilometers errorPtr:(SenseSdkErrorPointer * __nullable)errorPtr;
++ (Trigger * __nullable)whenEntersGeofences:(NSArray * __nonnull)geofences errorPtr:(SenseSdkErrorPointer * __nullable)errorPtr;
++ (Trigger * __nullable)whenExitsGeofences:(NSArray * __nonnull)geofences kilometers:(NSNumber * __nullable)kilometers errorPtr:(SenseSdkErrorPointer * __nullable)errorPtr;
 @end
 
 
@@ -189,14 +208,15 @@ SWIFT_CLASS("_TtC8SenseSdk8Location")
 @interface NSUserDefaults (SWIFT_EXTENSION(SenseSdk))
 @end
 
-enum PersonalizedPlaceType : NSInteger;
 
 SWIFT_CLASS("_TtC8SenseSdk17PersonalizedPlace")
 @interface PersonalizedPlace : NSObject <NSCoding, Place>
 @property (nonatomic, readonly) Location * __nonnull location;
 @property (nonatomic, readonly) double radius;
 @property (nonatomic, readonly) enum PersonalizedPlaceType personalizedPlaceType;
+@property (nonatomic, readonly) enum PlaceType type;
 @property (nonatomic, readonly) NSMutableDictionary * __nonnull details;
+@property (nonatomic, readonly, copy, getter=description) NSString * __nonnull description;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithLatitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude radius:(double)radius personalizedPlaceType:(enum PersonalizedPlaceType)personalizedPlaceType;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithLocation:(Location * __nonnull)location radius:(double)radius personalizedPlaceType:(enum PersonalizedPlaceType)personalizedPlaceType OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder;
@@ -215,12 +235,19 @@ typedef SWIFT_ENUM(NSInteger, PersonalizedPlaceType) {
 };
 
 
+typedef SWIFT_ENUM(NSInteger, PlaceType) {
+  PlaceTypePersonal = 1,
+  PlaceTypeCustomGeofence = 2,
+  PlaceTypePoi = 3,
+};
+
 
 SWIFT_CLASS("_TtC8SenseSdk8PoiPlace")
 @interface PoiPlace : NSObject <NSCoding, Place>
 @property (nonatomic, readonly, copy) NSString * __nonnull id;
 @property (nonatomic, readonly) Location * __nonnull location;
 @property (nonatomic, readonly) double radius;
+@property (nonatomic, readonly) enum PlaceType type;
 @property (nonatomic, readonly) NSMutableDictionary * __nonnull details;
 @property (nonatomic, readonly, copy, getter=description) NSString * __nonnull description;
 - (CLLocationDistance)distanceFrom:(Location * __nonnull)other;
@@ -244,7 +271,6 @@ typedef SWIFT_ENUM(NSInteger, PoiType) {
   PoiTypeUnknown = 9999,
 };
 
-@class Trigger;
 @class TimeWindow;
 
 SWIFT_CLASS("_TtC8SenseSdk6Recipe")
@@ -256,6 +282,22 @@ SWIFT_CLASS("_TtC8SenseSdk6Recipe")
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithName:(NSString * __nonnull)name trigger:(Trigger * __nonnull)trigger timeWindow:(TimeWindow * __nonnull)timeWindow cooldown:(Cooldown * __nonnull)cooldown OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class TriggerFiredArgs;
+
+SWIFT_CLASS("_TtC8SenseSdk15RecipeFiredArgs")
+@interface RecipeFiredArgs
+@property (nonatomic, readonly) NSDate * __nonnull timestamp;
+@property (nonatomic, readonly) Recipe * __nonnull recipe;
+@property (nonatomic, readonly) enum ConfidenceLevel confidenceLevel;
+@property (nonatomic, readonly, copy) NSArray * __nonnull triggersFired;
+@end
+
+
+SWIFT_PROTOCOL("_TtP8SenseSdk19RecipeFiredDelegate_")
+@protocol RecipeFiredDelegate
+- (void)recipeFired:(RecipeFiredArgs * __nonnull)args;
+@end
+
 
 SWIFT_PROTOCOL("_TtP8SenseSdk6Region_")
 @protocol Region
@@ -263,12 +305,11 @@ SWIFT_PROTOCOL("_TtP8SenseSdk6Region_")
 - (id <Region> __nonnull)addRadiusWithRadius:(NSNumber * __nonnull)radius;
 @end
 
-@protocol TriggerFiredDelegate;
 
 SWIFT_CLASS("_TtC8SenseSdk8SenseSdk")
 @interface SenseSdk
 + (void)enableSdkWithKey:(NSString * __nonnull)apiKey;
-+ (BOOL)registerWithRecipe:(Recipe * __nonnull)recipe delegate:(id <TriggerFiredDelegate> __nonnull)delegate errorPtr:(SenseSdkErrorPointer * __nullable)errorPtr;
++ (BOOL)registerWithRecipe:(Recipe * __nonnull)recipe delegate:(id <RecipeFiredDelegate> __nonnull)delegate errorPtr:(SenseSdkErrorPointer * __nullable)errorPtr;
 + (BOOL)unregisterWithName:(NSString * __nonnull)name;
 + (Recipe * __nullable)findRecipeWithName:(NSString * __nonnull)name;
 @end
@@ -303,30 +344,25 @@ SWIFT_CLASS("_TtC8SenseSdk10TimeWindow")
 + (TimeWindow * __nullable)createFromHour:(NSInteger)fromHour toHour:(NSInteger)toHour errorPtr:(SenseSdkErrorPointer * __nullable)errorPtr;
 @end
 
+enum TriggerType : NSInteger;
 
 SWIFT_CLASS("_TtC8SenseSdk7Trigger")
 @interface Trigger
-+ (Trigger * __nullable)whenEntersPoi:(enum PoiType)type errorPtr:(SenseSdkErrorPointer * __nullable)errorPtr;
-+ (Trigger * __nullable)whenExitsPoi:(enum PoiType)type errorPtr:(SenseSdkErrorPointer * __nullable)errorPtr;
-+ (Trigger * __nullable)whenEntersPersonalizedPlace:(enum PersonalizedPlaceType)type errorPtr:(SenseSdkErrorPointer * __nullable)errorPtr;
-+ (Trigger * __nullable)whenExitsPersonalizedPlace:(enum PersonalizedPlaceType)type kilometers:(NSNumber * __nullable)kilometers errorPtr:(SenseSdkErrorPointer * __nullable)errorPtr;
-+ (Trigger * __nullable)whenEntersGeofences:(NSArray * __nonnull)geofences errorPtr:(SenseSdkErrorPointer * __nullable)errorPtr;
-+ (Trigger * __nullable)whenExitsGeofences:(NSArray * __nonnull)geofences kilometers:(NSNumber * __nullable)kilometers errorPtr:(SenseSdkErrorPointer * __nullable)errorPtr;
+@property (nonatomic, readonly) enum TriggerType triggerType;
 @end
 
 
 SWIFT_CLASS("_TtC8SenseSdk16TriggerFiredArgs")
 @interface TriggerFiredArgs
 @property (nonatomic, readonly) NSDate * __nonnull timestamp;
-@property (nonatomic, readonly) Recipe * __nonnull recipe;
 @property (nonatomic, readonly, copy) NSArray * __nonnull places;
 @property (nonatomic, readonly) enum ConfidenceLevel confidenceLevel;
 @end
 
-
-SWIFT_PROTOCOL("_TtP8SenseSdk20TriggerFiredDelegate_")
-@protocol TriggerFiredDelegate
-- (void)onTriggerFired:(TriggerFiredArgs * __nonnull)args;
-@end
+typedef SWIFT_ENUM(NSInteger, TriggerType) {
+  TriggerTypePersonal = 1,
+  TriggerTypeCustomGeofence = 2,
+  TriggerTypePoi = 3,
+};
 
 #pragma clang diagnostic pop

@@ -10,7 +10,7 @@ import UIKit
 import SenseSdk
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, TriggerFiredDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, RecipeFiredDelegate {
 
     var window: UIWindow?
 
@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TriggerFiredDelegate {
 
         SenseSdk.enableSdkWithKey("app_key_goes_here")
 
-        let errorPtr = SenseSdkErrorPointer()
-        if let restaurantTrigger = Trigger.whenEntersPoi(.Restaurant, errorPtr: errorPtr) {
+        let errorPtr = SenseSdkErrorPointer.create()
+        if let restaurantTrigger = FireTrigger.whenEntersPoi(.Restaurant, errorPtr: errorPtr) {
             let restaurantRecipe = Recipe(name: "EnteredRestaurant", trigger: restaurantTrigger)
             SenseSdk.register(recipe: restaurantRecipe, delegate: self, errorPtr: errorPtr)
         }
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TriggerFiredDelegate {
         return true
     }
     
-    func onTriggerFired(args: TriggerFiredArgs) {
+    func recipeFired(args: RecipeFiredArgs) {
         //Your user has entered a restaurant!//
         NSLog("Recipe \(args.recipe.name) fired at \(args.timestamp).")
     }

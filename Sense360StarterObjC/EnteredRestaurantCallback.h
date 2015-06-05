@@ -8,6 +8,6 @@
 
 @import SenseSdk;
 
-@interface EnteredRestaurantCallback : NSObject<TriggerFiredDelegate>
+@interface EnteredRestaurantCallback : NSObject<RecipeFiredDelegate>
 
 @end
