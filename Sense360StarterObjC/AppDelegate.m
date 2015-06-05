@@ -18,17 +18,20 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    // Replace with your app key provided by Sense360
     [SenseSdk enableSdkWithKey:@"app_key_goes_here"];
 
     SenseSdkErrorPointer *errorPtr = [SenseSdkErrorPointer create];
-    
+    // Fire when the user enters a restaurant
     Trigger *restaurantTrigger = [FireTrigger whenEntersPoi:PoiTypeRestaurant errorPtr:errorPtr];
     
     if(restaurantTrigger != nil) {
-        Recipe *recipe = [[Recipe alloc] initWithName: @"EnteredRestaurant"
+        // Recipe defines what trigger, what time of day and how long to wait between consecutive firings
+        Recipe *recipe = [[Recipe alloc] initWithName: @"ArrivedAtRestaurant"
                         trigger:restaurantTrigger
+                        // Do NOT restrict the firing to a particular time of day
                         timeWindow: [TimeWindow allDay]
+                        // Wait at least 30 mins (default) between consecutive trigger firings.
                         cooldown: [Cooldown defaultCooldown]];
         
         EnteredRestaurantCallback *callback = [EnteredRestaurantCallback alloc];
