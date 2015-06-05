@@ -16,21 +16,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, TriggerFiredDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
 
-        SenseSdk.enableSdkWithKey("hello")
+        SenseSdk.enableSdkWithKey("app_key_goes_here")
 
-        let restaurantTrigger = PoiTriggerBuilder().set(poiType: .Restaurant).hasEntered().build().trigger!
-        let restaurantRecipe = Recipe(name: "EnteredRestaurant", trigger: restaurantTrigger)
-
-        SenseSdk.register(recipe: restaurantRecipe, delegate: self)
-
+        let errorPtr = SenseSdkErrorPointer()
+        if let restaurantTrigger = Trigger.whenEntersPoi(.Restaurant, errorPtr: errorPtr) {
+            let restaurantRecipe = Recipe(name: "EnteredRestaurant", trigger: restaurantTrigger)
+            SenseSdk.register(recipe: restaurantRecipe, delegate: self, errorPtr: errorPtr)
+        }
+        logErrors(errorPtr)
+        
+        
+        //...Any other code that should run on launch...//
+        
         return true
     }
-
+    
     func onTriggerFired(args: TriggerFiredArgs) {
+        //Your user has entered a restaurant!//
         NSLog("Recipe \(args.recipe.name) fired at \(args.timestamp).")
     }
+    
+    //Log any errors that occured during while registering your recipe//
+    func logErrors(errorPtr: SenseSdkErrorPointer) {
+        if let error = errorPtr.error {
+            NSLog(error.message)
+        }
+    }
+    
+    
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
