@@ -14,7 +14,7 @@
 @end
 
 @implementation EnteredRestaurantCallback
-- (void)onTriggerFired:(TriggerFiredArgs*) args {
+- (void)recipeFired:(RecipeFiredArgs*) args {
     //Your user has entered a restaurant!//
     NSLog(@"Recipe %@ fired at %@.", [[args recipe] name], [args timestamp]);
 }

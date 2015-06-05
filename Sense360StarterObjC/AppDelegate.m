@@ -23,7 +23,7 @@
 
     SenseSdkErrorPointer *errorPointer = [SenseSdkErrorPointer create];
     
-    Trigger *restaurantTrigger = [Trigger whenEntersPoi:PoiTypeRestaurant errorPtr:errorPointer];
+    Trigger *restaurantTrigger = [FireTrigger whenEntersPoi:PoiTypeRestaurant errorPtr:errorPointer];
     
     if(restaurantTrigger != nil) {
         Recipe *recipe = [[Recipe alloc] initWithName: @"EnteredRestaurant"
