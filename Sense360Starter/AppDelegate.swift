@@ -15,22 +15,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RecipeFiredDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-
-        SenseSdk.enableSdkWithKey("api_key")
+        // Replace with your app key provided by Sense360
+        SenseSdk.enableSdkWithKey("app_key_goes_here")
 
         let errorPointer = SenseSdkErrorPointer.create()
+        // Fire when the user enters a restaurant
         let trigger = FireTrigger.whenEntersPoi(.Restaurant, errorPtr: errorPointer)
 
         if let restaurantTrigger = trigger {
-            let restaurantRecipe = Recipe(name: "EnteredRestaurant", trigger: restaurantTrigger)
+            // Recipe defines what trigger, what time of day and how long to wait between consecutive firings
+            let restaurantRecipe = Recipe(name: "ArrivedAtRestaurant",
+                                            trigger: restaurantTrigger,
+                                            // Do NOT restrict the firing to a particular time of day
+                                            timeWindow: TimeWindow.allDay,
+                                            // Wait at least 30 mins (default) between consecutive trigger firings.
+                                            cooldown: Cooldown.create(oncePer: 1, frequency: CooldownTimeUnit.Hours)!)
+
+            // register the unique recipe and specify that when the trigger fires it should call our own "onTriggerFired" method below
             SenseSdk.register(recipe: restaurantRecipe, delegate: self)
-        } else {
-            NSLog("Error creating trigger. Msg=\(errorPointer.error.message)")
-        }        
-        
+        }
+
+        if errorPointer.error != nil {
+            NSLog("Error!: \(errorPointer.error.message)")
+        }
+
         //...Any other code that should run on launch...//
-        
+
         return true
     }
 
