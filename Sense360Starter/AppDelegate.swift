@@ -14,42 +14,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RecipeFiredDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // Override point for customization after application launch.
 
-        SenseSdk.enableSdkWithKey("app_key_goes_here")
+        SenseSdk.enableSdkWithKey("api_key")
 
-        let errorPtr = SenseSdkErrorPointer.create()
-        if let restaurantTrigger = FireTrigger.whenEntersPoi(.Restaurant, errorPtr: errorPtr) {
+        let errorPointer = SenseSdkErrorPointer.create()
+        let trigger = FireTrigger.whenEntersPoi(.Restaurant, errorPtr: errorPointer)
+
+        if let restaurantTrigger = trigger {
             let restaurantRecipe = Recipe(name: "EnteredRestaurant", trigger: restaurantTrigger)
-            SenseSdk.register(recipe: restaurantRecipe, delegate: self, errorPtr: errorPtr)
-        }
-        logErrors(errorPtr)
-        
+            SenseSdk.register(recipe: restaurantRecipe, delegate: self)
+        } else {
+            NSLog("Error creating trigger. Msg=\(errorPointer.error.message)")
+        }        
         
         //...Any other code that should run on launch...//
         
         return true
     }
-    
+
     func recipeFired(args: RecipeFiredArgs) {
-        //Your user has entered a restaurant!//
-        NSLog("Recipe \(args.recipe.name) fired at \(args.timestamp).")
-        for trigger in args.triggersFired {
-            for place in trigger.places {
-                NSLog(place.description)
+
+        NSLog("Recipe \(args.recipe.name) fired at \(args.timestamp). ")
+
+        if args.triggersFired.count > 0 {
+            let triggerFired = args.triggersFired[0]
+            if triggerFired.places.count > 0 {
+                let place = triggerFired.places[0]
+
+                let transitionDesc = args.recipe.trigger.transitionType.description
+                switch(place.type) {
+                    case .CustomGeofence:
+                        if let geofence = place as? CustomGeofence {
+                            NSLog("\(transitionDesc) \(geofence.customIdentifier)")
+                        }
+                        break;
+                    case .Personal:
+                        if let personal = place as? PersonalizedPlace {
+                            NSLog("\(transitionDesc) \(personal.personalizedPlaceType.description)")
+                        }
+                        break;
+                    case .Poi:
+                        if let poi = place as? PoiPlace {
+                            NSLog("\(transitionDesc) \(poi.types[0].description)")
+                        }
+                        break;
+                }
             }
         }
     }
-    
-    //Log any errors that occured during while registering your recipe//
-    func logErrors(errorPtr: SenseSdkErrorPointer) {
-        if let error = errorPtr.error {
-            NSLog(error.message)
-        }
-    }
-    
-    
     
 
     func applicationWillResignActive(application: UIApplication) {
@@ -73,7 +87,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RecipeFiredDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 

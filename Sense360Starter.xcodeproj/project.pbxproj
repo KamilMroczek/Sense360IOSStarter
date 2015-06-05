@@ -16,13 +16,17 @@
 		1C2ADCD41B21015E00C2C775 /* Sense360StarterObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2ADCD31B21015E00C2C775 /* Sense360StarterObjCTests.m */; };
 		1C2ADCDB1B21072400C2C775 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961C14051B1E79BB00030857 /* CoreLocation.framework */; };
 		1C2ADCDC1B21073B00C2C775 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 961C14061B1E79BB00030857 /* libz.dylib */; };
-		1C2ADCDD1B21075300C2C775 /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968E1B091B1EC3F800167713 /* SenseSdk.framework */; };
 		1C2ADCDE1B21076100C2C775 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961C14071B1E79BB00030857 /* SystemConfiguration.framework */; };
 		1CC786A01B2118F100191B99 /* EnteredRestaurantCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CC7869F1B2118F100191B99 /* EnteredRestaurantCallback.m */; };
 		961C14081B1E79BB00030857 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961C14051B1E79BB00030857 /* CoreLocation.framework */; };
 		961C14091B1E79BB00030857 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 961C14061B1E79BB00030857 /* libz.dylib */; };
 		961C140A1B1E79BB00030857 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961C14071B1E79BB00030857 /* SystemConfiguration.framework */; };
-		968E1B0A1B1EC3F800167713 /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968E1B091B1EC3F800167713 /* SenseSdk.framework */; };
+		965EC8B11B216D4C00E036AB /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965EC8B01B216D4C00E036AB /* SenseSdk.framework */; };
+		965EC8B21B216D4C00E036AB /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965EC8B01B216D4C00E036AB /* SenseSdk.framework */; };
+		965EC8BF1B216FDC00E036AB /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965EC8B01B216D4C00E036AB /* SenseSdk.framework */; };
+		965EC8C01B216FDC00E036AB /* SenseSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 965EC8B01B216D4C00E036AB /* SenseSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		965EC8C21B216FE300E036AB /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965EC8B01B216D4C00E036AB /* SenseSdk.framework */; };
+		965EC8C31B216FE300E036AB /* SenseSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 965EC8B01B216D4C00E036AB /* SenseSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96E5B46D1B1E284D0010F786 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5B46C1B1E284D0010F786 /* AppDelegate.swift */; };
 		96E5B46F1B1E284D0010F786 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5B46E1B1E284D0010F786 /* ViewController.swift */; };
 		96E5B4721B1E284D0010F786 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96E5B4701B1E284D0010F786 /* Main.storyboard */; };
@@ -48,6 +52,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		965EC8C11B216FDC00E036AB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				965EC8C01B216FDC00E036AB /* SenseSdk.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		965EC8C41B216FE300E036AB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				965EC8C31B216FE300E036AB /* SenseSdk.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1C2ADCB51B21015D00C2C775 /* Sense360StarterObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sense360StarterObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C2ADCB81B21015D00C2C775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,7 +96,7 @@
 		961C14051B1E79BB00030857 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		961C14061B1E79BB00030857 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		961C14071B1E79BB00030857 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		968E1B091B1EC3F800167713 /* SenseSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SenseSdk.framework; sourceTree = "<group>"; };
+		965EC8B01B216D4C00E036AB /* SenseSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SenseSdk.framework; sourceTree = "<group>"; };
 		96E5B4671B1E284D0010F786 /* Sense360Starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sense360Starter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E5B46B1B1E284D0010F786 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96E5B46C1B1E284D0010F786 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,8 +115,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C2ADCDE1B21076100C2C775 /* SystemConfiguration.framework in Frameworks */,
-				1C2ADCDD1B21075300C2C775 /* SenseSdk.framework in Frameworks */,
 				1C2ADCDC1B21073B00C2C775 /* libz.dylib in Frameworks */,
+				965EC8C21B216FE300E036AB /* SenseSdk.framework in Frameworks */,
+				965EC8B21B216D4C00E036AB /* SenseSdk.framework in Frameworks */,
 				1C2ADCDB1B21072400C2C775 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,7 +135,8 @@
 			files = (
 				961C14081B1E79BB00030857 /* CoreLocation.framework in Frameworks */,
 				961C14091B1E79BB00030857 /* libz.dylib in Frameworks */,
-				968E1B0A1B1EC3F800167713 /* SenseSdk.framework in Frameworks */,
+				965EC8BF1B216FDC00E036AB /* SenseSdk.framework in Frameworks */,
+				965EC8B11B216D4C00E036AB /* SenseSdk.framework in Frameworks */,
 				961C140A1B1E79BB00030857 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,7 +199,7 @@
 			children = (
 				961C14051B1E79BB00030857 /* CoreLocation.framework */,
 				961C14061B1E79BB00030857 /* libz.dylib */,
-				968E1B091B1EC3F800167713 /* SenseSdk.framework */,
+				965EC8B01B216D4C00E036AB /* SenseSdk.framework */,
 				961C14071B1E79BB00030857 /* SystemConfiguration.framework */,
 				96E5B4691B1E284D0010F786 /* Sense360Starter */,
 				96E5B47F1B1E284D0010F786 /* Sense360StarterTests */,
@@ -237,6 +268,7 @@
 				1C2ADCB11B21015D00C2C775 /* Sources */,
 				1C2ADCB21B21015D00C2C775 /* Frameworks */,
 				1C2ADCB31B21015D00C2C775 /* Resources */,
+				965EC8C41B216FE300E036AB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -272,6 +304,7 @@
 				96E5B4631B1E284D0010F786 /* Sources */,
 				96E5B4641B1E284D0010F786 /* Frameworks */,
 				96E5B4651B1E284D0010F786 /* Resources */,
+				965EC8C11B216FDC00E036AB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -480,6 +513,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -489,7 +523,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Sense360StarterObjC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -499,12 +533,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Sense360StarterObjC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -580,7 +615,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -618,7 +653,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -634,7 +669,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Sense360Starter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -649,7 +684,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Sense360Starter/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
