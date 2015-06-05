@@ -35,6 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RecipeFiredDelegate {
     func recipeFired(args: RecipeFiredArgs) {
         //Your user has entered a restaurant!//
         NSLog("Recipe \(args.recipe.name) fired at \(args.timestamp).")
+        for trigger in args.triggersFired {
+            for place in trigger.places {
+                NSLog(place.description)
+            }
+        }
     }
     
     //Log any errors that occured during while registering your recipe//
