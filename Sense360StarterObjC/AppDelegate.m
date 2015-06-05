@@ -21,9 +21,9 @@
     
     [SenseSdk enableSdkWithKey:@"app_key_goes_here"];
 
-    SenseSdkErrorPointer *errorPointer = [SenseSdkErrorPointer create];
+    SenseSdkErrorPointer *errorPtr = [SenseSdkErrorPointer create];
     
-    Trigger *restaurantTrigger = [FireTrigger whenEntersPoi:PoiTypeRestaurant errorPtr:errorPointer];
+    Trigger *restaurantTrigger = [FireTrigger whenEntersPoi:PoiTypeRestaurant errorPtr:errorPtr];
     
     if(restaurantTrigger != nil) {
         Recipe *recipe = [[Recipe alloc] initWithName: @"EnteredRestaurant"
@@ -32,9 +32,9 @@
                         cooldown: [Cooldown defaultCooldown]];
         
         EnteredRestaurantCallback *callback = [EnteredRestaurantCallback alloc];
-        [SenseSdk registerWithRecipe:recipe delegate:callback errorPtr:nil];
+        [SenseSdk registerWithRecipe:recipe delegate:callback errorPtr:errorPtr];
     }
-    [self logErrors:errorPointer];
+    [self logErrors:errorPtr];
     
     //...Any other code that should run on launch...//
     
