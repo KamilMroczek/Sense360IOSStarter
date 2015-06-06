@@ -22,12 +22,6 @@
 		961C14091B1E79BB00030857 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 961C14061B1E79BB00030857 /* libz.dylib */; };
 		961C140A1B1E79BB00030857 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961C14071B1E79BB00030857 /* SystemConfiguration.framework */; };
 		965AF0BC1B22676600DF6791 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2ADCBF1B21015D00C2C775 /* ViewController.m */; };
-		965EC8B11B216D4C00E036AB /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965EC8B01B216D4C00E036AB /* SenseSdk.framework */; };
-		965EC8B21B216D4C00E036AB /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965EC8B01B216D4C00E036AB /* SenseSdk.framework */; };
-		965EC8BF1B216FDC00E036AB /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965EC8B01B216D4C00E036AB /* SenseSdk.framework */; };
-		965EC8C01B216FDC00E036AB /* SenseSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 965EC8B01B216D4C00E036AB /* SenseSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		965EC8C21B216FE300E036AB /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965EC8B01B216D4C00E036AB /* SenseSdk.framework */; };
-		965EC8C31B216FE300E036AB /* SenseSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 965EC8B01B216D4C00E036AB /* SenseSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		968684D81B2256BB006C75AC /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968684D71B2256BB006C75AC /* NotificationSender.swift */; };
 		96E5B46D1B1E284D0010F786 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5B46C1B1E284D0010F786 /* AppDelegate.swift */; };
 		96E5B46F1B1E284D0010F786 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5B46E1B1E284D0010F786 /* ViewController.swift */; };
@@ -35,6 +29,12 @@
 		96E5B4741B1E284D0010F786 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96E5B4731B1E284D0010F786 /* Images.xcassets */; };
 		96E5B4771B1E284D0010F786 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E5B4751B1E284D0010F786 /* LaunchScreen.xib */; };
 		96E5B4831B1E284D0010F786 /* Sense360StarterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5B4821B1E284D0010F786 /* Sense360StarterTests.swift */; };
+		96F9796D1B22D44400D3423C /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96F9796C1B22D44400D3423C /* SenseSdk.framework */; };
+		96F9796E1B22D44400D3423C /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96F9796C1B22D44400D3423C /* SenseSdk.framework */; };
+		96F9796F1B22D4E800D3423C /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96F9796C1B22D44400D3423C /* SenseSdk.framework */; };
+		96F979701B22D4E800D3423C /* SenseSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96F9796C1B22D44400D3423C /* SenseSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		96F979711B22D4F200D3423C /* SenseSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96F9796C1B22D44400D3423C /* SenseSdk.framework */; };
+		96F979721B22D4F200D3423C /* SenseSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96F9796C1B22D44400D3423C /* SenseSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +61,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				965EC8C01B216FDC00E036AB /* SenseSdk.framework in Embed Frameworks */,
+				96F979721B22D4F200D3423C /* SenseSdk.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,7 +72,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				965EC8C31B216FE300E036AB /* SenseSdk.framework in Embed Frameworks */,
+				96F979701B22D4E800D3423C /* SenseSdk.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,7 +100,6 @@
 		961C14051B1E79BB00030857 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		961C14061B1E79BB00030857 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		961C14071B1E79BB00030857 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		965EC8B01B216D4C00E036AB /* SenseSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SenseSdk.framework; sourceTree = "<group>"; };
 		968684D71B2256BB006C75AC /* NotificationSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSender.swift; sourceTree = "<group>"; };
 		96E5B4671B1E284D0010F786 /* Sense360Starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sense360Starter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E5B46B1B1E284D0010F786 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +111,7 @@
 		96E5B47C1B1E284D0010F786 /* Sense360StarterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Sense360StarterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E5B4811B1E284D0010F786 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96E5B4821B1E284D0010F786 /* Sense360StarterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sense360StarterTests.swift; sourceTree = "<group>"; };
+		96F9796C1B22D44400D3423C /* SenseSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SenseSdk.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +121,8 @@
 			files = (
 				1C2ADCDE1B21076100C2C775 /* SystemConfiguration.framework in Frameworks */,
 				1C2ADCDC1B21073B00C2C775 /* libz.dylib in Frameworks */,
-				965EC8C21B216FE300E036AB /* SenseSdk.framework in Frameworks */,
-				965EC8B21B216D4C00E036AB /* SenseSdk.framework in Frameworks */,
+				96F9796F1B22D4E800D3423C /* SenseSdk.framework in Frameworks */,
+				96F9796E1B22D44400D3423C /* SenseSdk.framework in Frameworks */,
 				1C2ADCDB1B21072400C2C775 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,8 +140,8 @@
 			files = (
 				961C14081B1E79BB00030857 /* CoreLocation.framework in Frameworks */,
 				961C14091B1E79BB00030857 /* libz.dylib in Frameworks */,
-				965EC8BF1B216FDC00E036AB /* SenseSdk.framework in Frameworks */,
-				965EC8B11B216D4C00E036AB /* SenseSdk.framework in Frameworks */,
+				96F979711B22D4F200D3423C /* SenseSdk.framework in Frameworks */,
+				96F9796D1B22D44400D3423C /* SenseSdk.framework in Frameworks */,
 				961C140A1B1E79BB00030857 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,7 +206,7 @@
 			children = (
 				961C14051B1E79BB00030857 /* CoreLocation.framework */,
 				961C14061B1E79BB00030857 /* libz.dylib */,
-				965EC8B01B216D4C00E036AB /* SenseSdk.framework */,
+				96F9796C1B22D44400D3423C /* SenseSdk.framework */,
 				961C14071B1E79BB00030857 /* SystemConfiguration.framework */,
 				96E5B4691B1E284D0010F786 /* Sense360Starter */,
 				96E5B47F1B1E284D0010F786 /* Sense360StarterTests */,
