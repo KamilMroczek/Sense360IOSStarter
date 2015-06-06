@@ -26,14 +26,15 @@
     Trigger *restaurantTrigger = [FireTrigger whenEntersPoi:PoiTypeRestaurant errorPtr:errorPtr];
     
     if(restaurantTrigger != nil) {
-        // Recipe defines what trigger, what time of day and how long to wait between consecutive firings
+        // Recipe defines what trigger, what time of day and how long to wait between consecutive triggers firing
         Recipe *recipe = [[Recipe alloc] initWithName: @"ArrivedAtRestaurant"
                         trigger:restaurantTrigger
                         // Do NOT restrict the firing to a particular time of day
                         timeWindow: [TimeWindow allDay]
-                        // Wait at least 30 mins (default) between consecutive trigger firings.
-                        cooldown: [Cooldown defaultCooldown]];
-        
+                        // Wait at least 1 hour between consecutive triggers firing.
+                        cooldown: [Cooldown createWithOncePer:1 frequency:CooldownTimeUnitHours errorPtr:nil]];
+
+        // register the unique recipe and specify that when the trigger fires it should call our own "onTriggerFired" wihtin the EnteredRestaurantCallback class
         EnteredRestaurantCallback *callback = [EnteredRestaurantCallback alloc];
         [SenseSdk registerWithRecipe:recipe delegate:callback errorPtr:errorPtr];
     }

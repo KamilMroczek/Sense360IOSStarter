@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, RecipeFiredDelegate {
                                             trigger: restaurantTrigger,
                                             // Do NOT restrict the firing to a particular time of day
                                             timeWindow: TimeWindow.allDay,
-                                            // Wait at least 30 mins (default) between consecutive trigger firings.
+                                            // Wait at least 1 hour between consecutive triggers firing.
                                             cooldown: Cooldown.create(oncePer: 1, frequency: CooldownTimeUnit.Hours)!)
 
             // register the unique recipe and specify that when the trigger fires it should call our own "onTriggerFired" method below
