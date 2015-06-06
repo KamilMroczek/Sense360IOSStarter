@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C00C1EB1B2283BE00455EE6 /* NotificationSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C00C1EA1B2283BE00455EE6 /* NotificationSender.m */; };
 		1C2ADCBA1B21015D00C2C775 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2ADCB91B21015D00C2C775 /* main.m */; };
 		1C2ADCBD1B21015D00C2C775 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2ADCBC1B21015D00C2C775 /* AppDelegate.m */; };
 		1C2ADCC31B21015D00C2C775 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2ADCC11B21015D00C2C775 /* Main.storyboard */; };
@@ -79,6 +80,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1C00C1EA1B2283BE00455EE6 /* NotificationSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationSender.m; sourceTree = "<group>"; };
+		1C00C1EC1B2283D200455EE6 /* NotificationSender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationSender.h; sourceTree = "<group>"; };
 		1C2ADCB51B21015D00C2C775 /* Sense360StarterObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sense360StarterObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C2ADCB81B21015D00C2C775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C2ADCB91B21015D00C2C775 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 				1C2ADCBF1B21015D00C2C775 /* ViewController.m */,
 				1CC786A11B21190900191B99 /* EnteredRestaurantCallback.h */,
 				1CC7869F1B2118F100191B99 /* EnteredRestaurantCallback.m */,
+				1C00C1EC1B2283D200455EE6 /* NotificationSender.h */,
+				1C00C1EA1B2283BE00455EE6 /* NotificationSender.m */,
 				1C2ADCC11B21015D00C2C775 /* Main.storyboard */,
 				1C2ADCC41B21015D00C2C775 /* Images.xcassets */,
 				1C2ADCC61B21015D00C2C775 /* LaunchScreen.xib */,
@@ -227,11 +232,11 @@
 			children = (
 				96E5B46C1B1E284D0010F786 /* AppDelegate.swift */,
 				96E5B46E1B1E284D0010F786 /* ViewController.swift */,
+				968684D71B2256BB006C75AC /* NotificationSender.swift */,
 				96E5B4701B1E284D0010F786 /* Main.storyboard */,
 				96E5B4731B1E284D0010F786 /* Images.xcassets */,
 				96E5B4751B1E284D0010F786 /* LaunchScreen.xib */,
 				96E5B46A1B1E284D0010F786 /* Supporting Files */,
-				968684D71B2256BB006C75AC /* NotificationSender.swift */,
 			);
 			path = Sense360Starter;
 			sourceTree = "<group>";
@@ -433,6 +438,7 @@
 				1C2ADCBD1B21015D00C2C775 /* AppDelegate.m in Sources */,
 				1C2ADCBA1B21015D00C2C775 /* main.m in Sources */,
 				1CC786A01B2118F100191B99 /* EnteredRestaurantCallback.m in Sources */,
+				1C00C1EB1B2283BE00455EE6 /* NotificationSender.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

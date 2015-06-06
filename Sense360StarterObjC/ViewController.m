@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "NotificationSender.h"
+@import SenseSdk;
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *btnTrigger;
@@ -25,6 +27,25 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)triggerPressed:(UIButton *)sender {
+    //Create a fake restaurant
+
+    PoiPlace* poiPlace = [[PoiPlace alloc] initWithLatitude:34.111
+                             longitude:-118.111
+                                radius:50
+                                  name:@"Big Restaurant"
+                                    id:@"id1"
+                                  type: PoiTypeRestaurant];
+    SenseSdkErrorPointer* errorPtr = [SenseSdkErrorPointer create];
+    
+    // This method should only be used for testing
+    NSArray* places = [[NSArray alloc] initWithObjects:poiPlace, nil];
+    [SenseSdkTestUtility fireTriggerFromRecipe:@"ArrivedAtRestaurant"
+                               confidenceLevel:ConfidenceLevelMedium
+                                        places:places
+                                      errorPtr:errorPtr];
+    if(errorPtr.error != nil) {
+        [NotificationSender send:@"Error sending trigger"];
+    }
 }
 
 @end
