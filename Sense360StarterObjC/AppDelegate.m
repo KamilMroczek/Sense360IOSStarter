@@ -23,7 +23,7 @@
 
     SenseSdkErrorPointer *errorPtr = [SenseSdkErrorPointer create];
     // Fire when the user enters a restaurant
-    Trigger *restaurantTrigger = [FireTrigger whenEntersPoi:PoiTypeRestaurant errorPtr:errorPtr];
+    Trigger *restaurantTrigger = [FireTrigger whenEntersPoi:PoiTypeRestaurant conditions: nil errorPtr:errorPtr];
     
     if(restaurantTrigger != nil) {
         // Recipe defines what trigger, what time of day and how long to wait between consecutive triggers firing
